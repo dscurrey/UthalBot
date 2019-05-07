@@ -1,5 +1,5 @@
-import net.dv8tion.jda.api.AccountType;
-import net.dv8tion.jda.api.JDABuilder;
+import org.javacord.api.DiscordApi;
+import org.javacord.api.DiscordApiBuilder;
 
 import java.io.File;
 import java.io.FileReader;
@@ -8,25 +8,17 @@ import java.util.Properties;
 public class UthalBot {
 
     private String prefix;
-    private JDABuilder builder;
+    private DiscordApi api;
     private File config;
 
     public UthalBot() {
         config = new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
-        builder = new JDABuilder(AccountType.BOT);
+        api = new DiscordApiBuilder().setToken(getToken()).login().join();
 
-        configBot();
+        MessageListener messageListener = new MessageListener();
+        api.addMessageCreateListener(messageListener);
 
-        try {
-            builder.build();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void configBot() {
-        builder.setToken(getToken());
-        builder.addEventListeners(new MessageListener());
+        System.out.println("Invite Link: " +api.createBotInvite());
     }
 
     private String getToken() {
