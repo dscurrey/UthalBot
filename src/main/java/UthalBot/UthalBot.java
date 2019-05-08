@@ -1,6 +1,7 @@
 package UthalBot;
 
 import UthalBot.command.DrinkCommand;
+import UthalBot.command.HelpCommand;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.javacord.api.DiscordApi;
@@ -44,6 +45,7 @@ public class UthalBot {
 
     private void setupCMDs(){
         api.addMessageCreateListener(new DrinkCommand());
+        api.addMessageCreateListener(new HelpCommand());
     }
 
 }
