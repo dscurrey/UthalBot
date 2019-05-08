@@ -1,3 +1,6 @@
+package UthalBot;
+
+import UthalBot.command.DrinkCommand;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.javacord.api.DiscordApi;
@@ -9,33 +12,38 @@ import java.util.Properties;
 
 public class UthalBot {
 
-    private String prefix;
+    public static String prefix;
+    private String token;
     private DiscordApi api;
     private File config;
     private static Logger logger = LogManager.getLogger(UthalBot.class);
 
     public UthalBot() {
-        //TODO: Fix this
-        config = /*new File("bot.properties");//*/new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
-        api = new DiscordApiBuilder().setToken(getToken()).login().join();
 
-        MessageListener messageListener = new MessageListener();
-        api.addMessageCreateListener(messageListener);
+        readConfig();
+
+        api = new DiscordApiBuilder().setToken(token).login().join();
+
+        setupCMDs();
 
         logger.info("Invite Link: " +api.createBotInvite());
     }
 
-    private String getToken() {
-        String token = "";
+    private void readConfig(){
+        config = /*new File("bot.properties");//*/new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
         try {
             FileReader reader = new FileReader(config);
             Properties properties = new Properties();
             properties.load(reader);
             token = properties.getProperty("bot.token");
+            prefix = properties.getProperty("bot.prefix");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return token;
+    }
+
+    private void setupCMDs(){
+        api.addMessageCreateListener(new DrinkCommand());
     }
 
 }
