@@ -9,15 +9,17 @@ import java.util.Properties;
 
 public class UthalBot {
 
-    private String prefix;
+    public static String prefix;
+    private String token;
     private DiscordApi api;
     private File config;
     private static Logger logger = LogManager.getLogger(UthalBot.class);
 
     public UthalBot() {
-        //TODO: Fix this
-        config = /*new File("bot.properties");//*/new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
-        api = new DiscordApiBuilder().setToken(getToken()).login().join();
+
+        readConfig();
+
+        api = new DiscordApiBuilder().setToken(token).login().join();
 
         MessageListener messageListener = new MessageListener();
         api.addMessageCreateListener(messageListener);
@@ -25,17 +27,17 @@ public class UthalBot {
         logger.info("Invite Link: " +api.createBotInvite());
     }
 
-    private String getToken() {
-        String token = "";
+    private void readConfig(){
+        config = new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
         try {
             FileReader reader = new FileReader(config);
             Properties properties = new Properties();
             properties.load(reader);
             token = properties.getProperty("bot.token");
+            prefix = properties.getProperty("bot.prefix");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return token;
     }
 
 }
