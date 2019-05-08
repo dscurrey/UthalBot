@@ -1,6 +1,6 @@
 package UthalBot.command;
 
-public abstract class BotCommand {
+public abstract class BotCommands {
 
     protected String prefix;
 

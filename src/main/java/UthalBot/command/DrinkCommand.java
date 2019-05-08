@@ -10,12 +10,11 @@ import UthalBot.UthalBot;
  * Class for the UthalBot.command "Drink"
  * Should send a quote in response to UthalBot.command
  */
-public class DrinkCommand extends BotCommand implements MessageCreateListener {
+public class DrinkCommand extends BotCommands implements MessageCreateListener {
 
     @Override
     public void onMessageCreate(MessageCreateEvent event) {
         this.prefix = UthalBot.prefix;
-        System.out.println(prefix);
         if(event.getMessageAuthor().isBotUser()){
             return;
         }
