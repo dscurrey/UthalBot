@@ -18,7 +18,7 @@ public class MessageListener implements MessageCreateListener {
 
     private void confPrefix(){
         //TODO: Fix this
-        File config = new File("bot.properties");//new File(MessageListener.class.getClassLoader().getResource("bot.properties").getPath());
+        File config = /*new File("bot.properties");//*/new File(MessageListener.class.getClassLoader().getResource("bot.properties").getPath());
         try {
             FileReader reader = new FileReader(config);
             Properties properties = new Properties();

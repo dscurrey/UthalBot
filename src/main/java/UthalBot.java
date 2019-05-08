@@ -1,3 +1,5 @@
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.javacord.api.DiscordApi;
 import org.javacord.api.DiscordApiBuilder;
 
@@ -10,16 +12,17 @@ public class UthalBot {
     private String prefix;
     private DiscordApi api;
     private File config;
+    private static Logger logger = LogManager.getLogger(UthalBot.class);
 
     public UthalBot() {
         //TODO: Fix this
-        config = new File("bot.properties");//new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
+        config = /*new File("bot.properties");//*/new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
         api = new DiscordApiBuilder().setToken(getToken()).login().join();
 
         MessageListener messageListener = new MessageListener();
         api.addMessageCreateListener(messageListener);
 
-        System.out.println("Invite Link: " +api.createBotInvite());
+        logger.info("Invite Link: " +api.createBotInvite());
     }
 
     private String getToken() {
