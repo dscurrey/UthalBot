@@ -1,3 +1,6 @@
+package UthalBot;
+
+import UthalBot.command.DrinkCommand;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.javacord.api.DiscordApi;
@@ -21,14 +24,13 @@ public class UthalBot {
 
         api = new DiscordApiBuilder().setToken(token).login().join();
 
-        MessageListener messageListener = new MessageListener();
-        api.addMessageCreateListener(messageListener);
+        setupCMDs();
 
         logger.info("Invite Link: " +api.createBotInvite());
     }
 
     private void readConfig(){
-        config = new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
+        config = /*new File("bot.properties");//*/new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
         try {
             FileReader reader = new FileReader(config);
             Properties properties = new Properties();
@@ -38,6 +40,10 @@ public class UthalBot {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void setupCMDs(){
+        api.addMessageCreateListener(new DrinkCommand());
     }
 
 }
