@@ -16,7 +16,7 @@ public class UthalBot {
 
     public UthalBot() {
         //TODO: Fix this
-        config = new File("bot.properties");//new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
+        config = /*new File("bot.properties");//*/new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
         api = new DiscordApiBuilder().setToken(getToken()).login().join();
 
         MessageListener messageListener = new MessageListener();
