@@ -46,6 +46,7 @@ public class UthalBot {
     private void setupCMDs(){
         api.addMessageCreateListener(new DrinkCommand());
         api.addMessageCreateListener(new HelpCommand());
+        api.addMessageCreateListener(new ValCommand());
     }
 
 }
