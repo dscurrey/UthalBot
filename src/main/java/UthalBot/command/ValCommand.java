@@ -6,6 +6,10 @@ import org.javacord.api.entity.message.MessageDecoration;
 import org.javacord.api.event.message.MessageCreateEvent;
 import org.javacord.api.listener.message.MessageCreateListener;
 
+/**
+ * Class for the UthalBot.command "Val"
+ * Should send a quote in response to UthalBot.command
+ */
 public class ValCommand extends BotCommands implements MessageCreateListener {
 
     @Override
