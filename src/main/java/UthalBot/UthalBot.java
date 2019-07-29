@@ -2,6 +2,7 @@ package UthalBot;
 
 import UthalBot.command.DrinkCommand;
 import UthalBot.command.HelpCommand;
+import UthalBot.command.ValCommand;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.javacord.api.DiscordApi;
@@ -24,8 +25,10 @@ public class UthalBot {
         readConfig();
 
         api = new DiscordApiBuilder().setToken(token).login().join();
+        logger.info("Joining...");
 
         setupCMDs();
+        logger.info("Setting up Commands...");
 
         logger.info("Invite Link: " +api.createBotInvite());
     }
@@ -46,6 +49,7 @@ public class UthalBot {
     private void setupCMDs(){
         api.addMessageCreateListener(new DrinkCommand());
         api.addMessageCreateListener(new HelpCommand());
+        api.addMessageCreateListener(new ValCommand());
     }
 
 }

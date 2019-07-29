@@ -2,5 +2,6 @@ package UthalBot.command;
 
 public enum CMD {
     DRINK,
-    HELP
+    HELP,
+    VAL
 }
