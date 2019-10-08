@@ -24,17 +24,22 @@ public class UthalBot {
 
         readConfig();
 
-        api = new DiscordApiBuilder().setToken(token).login().join();
-        logger.info("Joining...");
+        try {
+            api = new DiscordApiBuilder().setToken(token).login().join();
+        }
+        catch (Exception e) {
+            logger.error("Exception Connection to Server with Token");
+        }
+        logger.info("Joining Server(s)...");
 
-        setupCMDs();
         logger.info("Setting up Commands...");
+        setupCMDs();
 
         logger.info("Invite Link: " +api.createBotInvite());
     }
 
     private void readConfig(){
-        config = /*new File("bot.properties");//*/new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
+        config = new File("bot.properties");//*/new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
         try {
             FileReader reader = new FileReader(config);
             Properties properties = new Properties();
