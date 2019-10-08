@@ -15,6 +15,6 @@ public class Main {
 
         UthalBot bot = new UthalBot();
 
-        logger.info("Ready");
+        logger.info("Ready.");
     }
 }

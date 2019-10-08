@@ -1,5 +1,7 @@
 package UthalBot.command;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.javacord.api.entity.message.MessageBuilder;
 import org.javacord.api.entity.message.MessageDecoration;
 import org.javacord.api.event.message.MessageCreateEvent;
@@ -12,6 +14,8 @@ import UthalBot.UthalBot;
  */
 public class DrinkCommand extends BotCommands implements MessageCreateListener {
 
+    private static Logger logger = LogManager.getLogger(DrinkCommand.class);
+
     @Override
     public void onMessageCreate(MessageCreateEvent event) {
         this.prefix = UthalBot.prefix;
@@ -19,6 +23,7 @@ public class DrinkCommand extends BotCommands implements MessageCreateListener {
             return;
         }
         if(event.getMessageContent().equalsIgnoreCase(prefix+CMD.DRINK)){
+            logger.info("Command Received: "+this.toString());
             new MessageBuilder()
                     .append("\"I'll drink to that!\"", MessageDecoration.BOLD)
                     .send(event.getChannel());
