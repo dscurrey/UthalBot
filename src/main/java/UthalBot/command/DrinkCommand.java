@@ -14,8 +14,6 @@ import UthalBot.UthalBot;
  */
 public class DrinkCommand extends BotCommands implements MessageCreateListener {
 
-    private static Logger logger = LogManager.getLogger(DrinkCommand.class);
-
     @Override
     public void onMessageCreate(MessageCreateEvent event) {
         this.prefix = UthalBot.prefix;

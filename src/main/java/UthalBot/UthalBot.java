@@ -46,6 +46,7 @@ public class UthalBot {
             properties.load(reader);
             token = properties.getProperty("bot.token");
             prefix = properties.getProperty("bot.prefix");
+            logger.info("Selected Prefix: "+prefix);
         } catch (Exception e) {
             e.printStackTrace();
         }
