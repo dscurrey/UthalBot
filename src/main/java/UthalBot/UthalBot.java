@@ -39,7 +39,7 @@ public class UthalBot {
     }
 
     private void readConfig(){
-        config = new File("bot.properties");//*/new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
+        config = /*new File("bot.properties");//*/new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
         try {
             FileReader reader = new FileReader(config);
             Properties properties = new Properties();
