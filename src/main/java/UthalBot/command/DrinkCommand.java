@@ -12,7 +12,7 @@ import UthalBot.UthalBot;
  * Class for the UthalBot.command "Drink"
  * Should send a quote in response to UthalBot.command
  */
-public class DrinkCommand extends BotCommands implements MessageCreateListener {
+public class DrinkCommand extends BotCommands {
 
     @Override
     public void onMessageCreate(MessageCreateEvent event) {
@@ -21,7 +21,7 @@ public class DrinkCommand extends BotCommands implements MessageCreateListener {
             return;
         }
         if(event.getMessageContent().equalsIgnoreCase(prefix+CMD.DRINK)){
-            logger.info("Command Received: "+this.toString());
+            logger.info("Command Received: "+this.toString()+"/Channel: "+event.getChannel());
             new MessageBuilder()
                     .append("\"I'll drink to that!\"", MessageDecoration.BOLD)
                     .send(event.getChannel());
