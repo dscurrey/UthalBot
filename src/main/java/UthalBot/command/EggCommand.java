@@ -25,11 +25,9 @@ public class EggCommand extends BotCommands {
         }
         if(event.getMessageContent().equalsIgnoreCase(prefix+CMD.EGG)){
             logger.info("Command Received: "+this.toString()+"/Channel: "+event.getChannel());
-            EmbedBuilder embed = new EmbedBuilder()
-                    .setTitle("Egg")
-                    .setColor(Color.GREEN)
-                    .setImage(new File("https://scx2.b-cdn.net/gfx/news/hires/2017/egg.png"));
-            event.getChannel().sendMessage(embed);
+            new MessageBuilder()
+                    .addAttachment(new File("egg.png"))
+                    .send(event.getChannel());
         }
     }
 }
