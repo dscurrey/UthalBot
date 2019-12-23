@@ -4,5 +4,6 @@ public enum CMD {
     HELP,
     DRINK,
     VAL,
-    EGG
+    EGG,
+    EMOJITEST
 }
