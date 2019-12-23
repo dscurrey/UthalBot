@@ -12,9 +12,11 @@ import org.javacord.api.event.message.MessageCreateEvent;
  */
 public class DrinkCommand extends BotCommands {
 
+    private static final Logger logger = LogManager.getLogger(DrinkCommand.class);
+
     @Override
     public void onMessageCreate(MessageCreateEvent event) {
-        this.prefix = UthalBot.prefix;
+        setupPrefix();
         if(event.getMessageAuthor().isBotUser()){
             return;
         }

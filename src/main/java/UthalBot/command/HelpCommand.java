@@ -10,11 +10,11 @@ import java.util.EnumSet;
 
 public class HelpCommand extends BotCommands {
 
-    private static Logger logger = LogManager.getLogger(HelpCommand.class);
+    private static final Logger logger = LogManager.getLogger(HelpCommand.class);
 
     @Override
     public void onMessageCreate(MessageCreateEvent event) {
-        this.prefix = UthalBot.prefix;
+        setupPrefix();
         if(event.getMessageAuthor().isBotUser()){
             return;
         }

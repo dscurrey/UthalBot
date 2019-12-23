@@ -1,12 +1,18 @@
 package UthalBot.command;
 
 import UthalBot.Main;
+import UthalBot.UthalBot;
 import org.apache.logging.log4j.Logger;
 import org.javacord.api.listener.message.MessageCreateListener;
 
-public abstract class BotCommands implements MessageCreateListener {
+abstract class BotCommands implements MessageCreateListener {
 
-    protected String prefix;
+    String prefix;
     protected Logger logger = Main.logger;
+
+    void setupPrefix()
+    {
+        this.prefix = UthalBot.prefix;
+    }
 
 }

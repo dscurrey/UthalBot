@@ -6,7 +6,7 @@ import org.javacord.api.util.logging.FallbackLoggerConfiguration;
 
 public class Main {
 
-    public static Logger logger = LogManager.getLogger(Main.class);
+    public static final Logger logger = LogManager.getLogger(Main.class);
 
 
     public static void main(String[] args) {

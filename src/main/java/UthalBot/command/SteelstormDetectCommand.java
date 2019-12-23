@@ -10,11 +10,11 @@ import org.javacord.api.event.message.MessageCreateEvent;
  */
 public class SteelstormDetectCommand extends BotCommands {
 
-    private static Logger logger = LogManager.getLogger(ValCommand.class);
+    private static final Logger logger = LogManager.getLogger(SteelstormDetectCommand.class);
 
     @Override
     public void onMessageCreate(MessageCreateEvent event){
-        this.prefix = UthalBot.prefix;
+        setupPrefix();
         if(event.getMessageAuthor().isBotUser()){
             return;
         }

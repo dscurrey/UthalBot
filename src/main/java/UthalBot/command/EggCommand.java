@@ -9,11 +9,11 @@ import java.io.File;
 
 public class EggCommand extends BotCommands {
 
-    private static Logger logger = LogManager.getLogger(ValCommand.class);
+    private static final Logger logger = LogManager.getLogger(EggCommand.class);
 
     @Override
     public void onMessageCreate(MessageCreateEvent event) {
-        this.prefix = UthalBot.prefix;
+        setupPrefix();
         if(event.getMessageAuthor().isBotUser()){
             return;
         }
