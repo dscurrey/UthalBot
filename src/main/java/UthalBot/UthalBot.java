@@ -1,9 +1,6 @@
 package UthalBot;
 
-import UthalBot.command.DrinkCommand;
-import UthalBot.command.EggCommand;
-import UthalBot.command.HelpCommand;
-import UthalBot.command.ValCommand;
+import UthalBot.command.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.javacord.api.DiscordApi;
@@ -58,6 +55,7 @@ public class UthalBot {
         api.addMessageCreateListener(new HelpCommand());
         api.addMessageCreateListener(new ValCommand());
         api.addMessageCreateListener(new EggCommand());
+        api.addMessageCreateListener(new SteelstormDetectCommand());
     }
 
 }
