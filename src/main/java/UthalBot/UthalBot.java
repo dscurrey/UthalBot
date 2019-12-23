@@ -16,7 +16,7 @@ public class UthalBot {
     private String token;
     private DiscordApi api;
     private File config;
-    private static Logger logger = LogManager.getLogger(UthalBot.class);
+    private static final Logger logger = LogManager.getLogger(UthalBot.class);
 
     public UthalBot() {
 

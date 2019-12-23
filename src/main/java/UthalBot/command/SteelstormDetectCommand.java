@@ -1,10 +1,8 @@
 package UthalBot.command;
 
-import UthalBot.UthalBot;
 import com.vdurmont.emoji.EmojiParser;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.javacord.api.entity.message.MessageBuilder;
 import org.javacord.api.event.message.MessageCreateEvent;
 
 /**
@@ -12,11 +10,11 @@ import org.javacord.api.event.message.MessageCreateEvent;
  */
 public class SteelstormDetectCommand extends BotCommands {
 
-    private static Logger logger = LogManager.getLogger(ValCommand.class);
+    private static final Logger logger = LogManager.getLogger(SteelstormDetectCommand.class);
 
     @Override
     public void onMessageCreate(MessageCreateEvent event){
-        this.prefix = UthalBot.prefix;
+        setupPrefix();
         if(event.getMessageAuthor().isBotUser()){
             return;
         }
