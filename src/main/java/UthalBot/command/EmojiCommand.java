@@ -20,9 +20,9 @@ public class EmojiCommand extends BotCommands {
         if(event.getMessageAuthor().isBotUser()){
             return;
         }
-        if(event.getMessageContent().equalsIgnoreCase(prefix+CMD.EMOJITEST)){
-            logger.info("Command Received: "+this.toString()+"/Channel: "+event.getChannel());
-            event.getMessage().addReaction(EmojiParser.parseToUnicode(":thumbsup:"));
+        if(event.getMessageContent().toLowerCase().contains("steelstorm")){
+            logger.info("\"Steelstorm Detected, applying reaction\" "+this.toString()+"/Channel: "+event.getChannel());
+            event.getMessage().addReaction(EmojiParser.parseToUnicode(":crossed_swords:"));
         }
     }
 
