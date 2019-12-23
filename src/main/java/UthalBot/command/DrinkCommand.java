@@ -5,8 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.javacord.api.entity.message.MessageBuilder;
 import org.javacord.api.entity.message.MessageDecoration;
 import org.javacord.api.event.message.MessageCreateEvent;
-import org.javacord.api.listener.message.MessageCreateListener;
-import UthalBot.UthalBot;
 
 /**
  * Class for the UthalBot.command "Drink"
