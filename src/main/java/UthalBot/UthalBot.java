@@ -1,8 +1,6 @@
 package UthalBot;
 
-import UthalBot.command.DrinkCommand;
-import UthalBot.command.HelpCommand;
-import UthalBot.command.ValCommand;
+import UthalBot.command.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.javacord.api.DiscordApi;
@@ -39,7 +37,7 @@ public class UthalBot {
     }
 
     private void readConfig(){
-        config = /*new File("bot.properties");//*/new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
+        config = new File("bot.properties");//*/new File(UthalBot.class.getClassLoader().getResource("bot.properties").getPath());
         try {
             FileReader reader = new FileReader(config);
             Properties properties = new Properties();
@@ -56,6 +54,8 @@ public class UthalBot {
         api.addMessageCreateListener(new DrinkCommand());
         api.addMessageCreateListener(new HelpCommand());
         api.addMessageCreateListener(new ValCommand());
+        api.addMessageCreateListener(new EggCommand());
+        api.addMessageCreateListener(new SteelstormDetectCommand());
     }
 
 }

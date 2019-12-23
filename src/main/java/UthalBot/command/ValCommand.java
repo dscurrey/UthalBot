@@ -12,7 +12,7 @@ import org.javacord.api.listener.message.MessageCreateListener;
  * Class for the UthalBot.command "Val"
  * Should send a quote in response to UthalBot.command
  */
-public class ValCommand extends BotCommands implements MessageCreateListener {
+public class ValCommand extends BotCommands {
 
     private static Logger logger = LogManager.getLogger(ValCommand.class);
 
@@ -23,7 +23,7 @@ public class ValCommand extends BotCommands implements MessageCreateListener {
             return;
         }
         if(event.getMessageContent().equalsIgnoreCase(prefix+CMD.VAL)){
-            logger.info("Command Received: "+this.toString());
+            logger.info("Command Received: "+this.toString()+"/Channel: "+event.getChannel());
             new MessageBuilder()
                     .append("\"BASTARD!\"", MessageDecoration.BOLD)
                     .send(event.getChannel());

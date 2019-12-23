@@ -10,7 +10,7 @@ import org.javacord.api.listener.message.MessageCreateListener;
 
 import java.util.EnumSet;
 
-public class HelpCommand extends BotCommands implements MessageCreateListener {
+public class HelpCommand extends BotCommands {
 
     private static Logger logger = LogManager.getLogger(HelpCommand.class);
 
@@ -21,7 +21,7 @@ public class HelpCommand extends BotCommands implements MessageCreateListener {
             return;
         }
         if(event.getMessageContent().equalsIgnoreCase(prefix+CMD.HELP)){
-            logger.info("Command Received: "+this.toString());
+            logger.info("Command Received: "+this.toString()+"/Channel: "+event.getChannel());
             MessageBuilder helpMsg = new MessageBuilder()
                     .append("Command List\n", MessageDecoration.BOLD);
             EnumSet.allOf(CMD.class)
