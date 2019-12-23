@@ -10,7 +10,7 @@ import org.javacord.api.event.message.MessageCreateEvent;
 /**
  * A test command for using Emoji in the bot
  */
-public class EmojiCommand extends BotCommands {
+public class SteelstormDetectCommand extends BotCommands {
 
     private static Logger logger = LogManager.getLogger(ValCommand.class);
 

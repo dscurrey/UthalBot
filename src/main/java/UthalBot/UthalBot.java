@@ -55,7 +55,7 @@ public class UthalBot {
         api.addMessageCreateListener(new HelpCommand());
         api.addMessageCreateListener(new ValCommand());
         api.addMessageCreateListener(new EggCommand());
-        api.addMessageCreateListener(new EmojiCommand());
+        api.addMessageCreateListener(new SteelstormDetectCommand());
     }
 
 }
