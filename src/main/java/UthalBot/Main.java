@@ -6,15 +6,14 @@ import org.javacord.api.util.logging.FallbackLoggerConfiguration;
 
 public class Main {
 
-    public static final Logger logger = LogManager.getLogger(Main.class);
-    public static UthalBot bot;
+    public static Logger logger = LogManager.getLogger(Main.class);
 
 
     public static void main(String[] args) {
 
         FallbackLoggerConfiguration.setDebug(true);
 
-        bot = new UthalBot();
+        UthalBot bot = new UthalBot();
 
         logger.info("Ready.");
     }
