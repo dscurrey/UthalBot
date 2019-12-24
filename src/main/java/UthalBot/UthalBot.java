@@ -12,9 +12,10 @@ import java.util.Properties;
 
 public class UthalBot {
 
+    // TODO - Fix Encapsulation
     public static String prefix;
     private String token;
-    private DiscordApi api;
+    public DiscordApi api;
     private File config;
     private static Logger logger = LogManager.getLogger(UthalBot.class);
 
@@ -56,6 +57,7 @@ public class UthalBot {
         api.addMessageCreateListener(new ValCommand());
         api.addMessageCreateListener(new EggCommand());
         api.addMessageCreateListener(new SteelstormDetectCommand());
+        api.addMessageCreateListener(new DisconnectCommand());
     }
 
 }
