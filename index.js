@@ -18,6 +18,11 @@ client.once('ready', () => {
 client.login(token)
 
 client.on('message', message => {
+    if (/steelstorm/i.test(message.content))
+    {
+        message.react('⚔');
+    }
+
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const commandName = args.shift().toLowerCase();
