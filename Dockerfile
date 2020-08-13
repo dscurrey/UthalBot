@@ -9,4 +9,4 @@ VOLUME /usr/src/app
 
 COPY . .
 
-CMD [ "node", "index.js" ]
+CMD [ "node", "app.js" ]
