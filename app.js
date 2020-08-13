@@ -2,6 +2,8 @@ const fs = require('fs');
 const Discord = require('discord.js');
 const {prefix, token} = require('./config.json');
 
+console.log('Bot Version: v1.1.2')
+
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
 
@@ -30,7 +32,6 @@ client.on('message', message => {
     const command = client.commands.get(commandName);
 
     if (!command) return;
-    
     if (command.args && !args.length) {
         let reply = `No args provided, ${message.author}.`;
         if (command.usage) {
