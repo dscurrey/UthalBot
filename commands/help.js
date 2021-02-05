@@ -9,8 +9,9 @@ module.exports = {
         const {commands} = message.client;
 
         if (!args.length) {
-            data.push('List of commands:');
-            data.push(commands.map(command => command.name).join(', '));
+            data.push('UthalBot v1.2')
+            data.push('**List of commands:**');
+            data.push(commands.map(command => command.name).join(',\n'));
             data.push(`You can send \`${prefix}help [command name]\` to get info on a specific command.`);
 
             return message.author.send(data, {split: true}).then( () => {
