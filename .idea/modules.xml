@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/UthalBot.iml" filepath="$PROJECT_DIR$/.idea/UthalBot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/UthalPy.iml" filepath="$PROJECT_DIR$/.idea/UthalPy.iml" />
     </modules>
   </component>
 </project>
